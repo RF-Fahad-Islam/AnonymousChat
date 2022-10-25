@@ -1,6 +1,10 @@
-const io = require('socket.io')(8000)
+const express = require('express')
+app = express();
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
 const users = {}
-
+const PORT = process.env.PORT || 3000
+io.listen(PORT);
 let clients = 0
 io.on('connection', socket=> {
   clients++
@@ -20,3 +24,10 @@ io.on('connection', socket=> {
     delete users[socket.id]
   })
 })
+
+// app.get("/", (req, res)=> {
+// res.send(`<h1>io is listening on ${PORT}</h1>`)
+// })
+// app.listen(PORT, ()=> {
+//   console.log(`http://localhost:${PORT}`)
+// })

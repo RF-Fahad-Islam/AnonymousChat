@@ -1,4 +1,5 @@
-const socket = io("127.0.0.1:8000/", {
+
+const socket = io("https://chatappsocket99.herokuapp.com", {
   "force new connection": true,
   "reconnectionAttempts": "Infinity", 
   "timeout": 10001, 
