@@ -17,7 +17,7 @@ function scrollToBottom() {
 
 function currentDate() {
   date = new Date()
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { weekday: 'long', hour: 'numeric', minute: 'numeric'};
   current = date.toLocaleDateString(undefined, options)
   return current
 }
@@ -44,7 +44,7 @@ const appendDOM = (message, position)=> {
 
     messageContainer.innerHTML += 
     `
-    <div class="card message ${position} alert-${color}" style="width: auto; border-radius: ${borderRadius};">
+    <div class="card message my-2 ${position} alert-${color}" style="width: auto; border-radius: ${borderRadius};">
     <div class="card-body">
       <h6 class="card-text text-muted d-inline-block">${message}</h6>
     </div>
@@ -53,10 +53,11 @@ const appendDOM = (message, position)=> {
   }
   
   user = prompt("Enter Your Name")
+  if (!user) location.reload()
   socket.emit('new-user-join', user)
 
   socket.on("new-connection", clients=> {
-    appendDOM(`<i class="fa fa-user"></i> ${clients} users in the chat`, "info")
+    appendDOM(`<i class="fa fa-user"></i> ${clients} user(s) in the chat`, "info")
   })
 
   socket.on('user-join', name=> {
@@ -81,6 +82,6 @@ form.addEventListener("submit", (e)=> {
 })
 
 socket.on("left", name=> {
-  appendDOM(`${name.users} Left the Chat`, "middle")
+  appendDOM(`${name.users} Left the Chat`, "danger")
   appendDOM(`${name.clients} users in the Chat`, "info")
 })
