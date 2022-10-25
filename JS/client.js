@@ -38,7 +38,7 @@ const appendDOM = (message, position)=> {
       borderRadius = "10px"
     } else {
       color = "none bg-light mx-auto my-3 d-block"
-      borderRadius = "0"
+      borderRadius = "10px"
       position="middle"
     }
 
@@ -57,7 +57,7 @@ const appendDOM = (message, position)=> {
   socket.emit('new-user-join', user)
 
   socket.on("new-connection", clients=> {
-    if ((clients) == 1) clients = "No"
+    if ((clients) == 0) clients = "No"
     appendDOM(`<i class="fa fa-user"></i> ${clients} user(s) in the chat`, "info")
   })
 

@@ -16,6 +16,33 @@
   <title>Anonymous Chat App - Made By Fahad</title>
 </head>
 <style>
+  h3{
+    font-family: system-ui;
+    font-weight: bold;
+    color: #00000096;
+  }
+  .sendBtn {
+    position: absolute;
+    z-index: 2;
+    top: 11px;
+    right: 0px;
+    outline: none;
+    border: none;
+    background: none;
+    transition: all 0.5s;
+  }
+  .sendBtn:hover{
+    width: 50px;
+    border: none;
+  }
+  #msg{
+    background: rgba(255, 255, 255, 0.393);
+    box-shadow: -10px 2px 34px 0px rgb(255 255 255 / 60%);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
   .left {
     float: left;
     clear: both;
@@ -33,33 +60,96 @@
 
   .message {
     margin-top: 10px;
+    background: rgba(255, 255, 255, 0.65);
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 7.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
 
   .message:hover {
     box-shadow: 5px 10px 18px #888888;
   }
+
+  #messageContainer{
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 7.5px );
+-webkit-backdrop-filter: blur( 7.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+
+  .glassCard{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 14px;
+  }
+  .circle{
+    position: absolute;
+    border-radius: 50%;
+    width: 14rem;
+    height: 14rem;
+    background: linear-gradient(to right bottom, rgb(255 255 255) , rgba(255, 255, 255, 0.351));
+    top: 15px;
+    left: -37px;
+    box-shadow: white;
+    box-shadow: 14px 20px 79px 3px #ffffff;
+}
+
+.circle-2{
+  position: absolute;
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  background: linear-gradient(to right bottom, rgb(255 255 255) , rgba(255, 255, 255, 0.351));
+  bottom: 0;
+  right: -120px;
+  box-shadow: white;
+  box-shadow: 14px 20px 79px 3px #ffffff
+}
+
+.circle-3{
+  
+  position: absolute;
+  border-radius: 50%;
+  width: 14rem;
+  height: 14rem;
+  background: linear-gradient(to right bottom, rgb(255 255 255) , rgba(255, 255, 255, 0.351));
+  bottom: 20%;
+  left: 3%;
+  box-shadow: white;
+  box-shadow: -4px -20px 79px 20px #ffffff;
+}
 </style>
 
-<body class="bg-dark">
-  <div class="container">
+<body style="background-color: #0fad958a;background: linear-gradient(to right top, #db00ff8f, #41ffe2) cover no-repeat;">
+  <div class="container " style="position: relative;">
+    <!-- <div class="circle-3"></div> -->
+    <div class="circle-2"></div>
+    <div class="circle"></div>
 
-    <div class="logo d-flex justify-content-center">
+    <div class="logo d-flex flex-row justify-content-center">
       <img src="images/chatapp.png" style="width: auto; height: 80px; max-width: 80px;" alt="Chat-APP-Icon">
     </div>
-
+   
     <div id="messageContainer" class="container my-3 alert alert-dark"
       style="max-height: 100%;overflow-x: hidden;overflow-y: scroll;  width: 100%; height: 600px;">
-      <h3 class="text-center">Anonymous Chat App
+      <h3 class="text-center glassCard">Anonymous Chat App
         <hr> Created BY Fahad
-      </h3>
+      </h3>  
     </div>
 
     <div class="container">
-      <form id="sendForm">
+      <form id="sendForm" style="position: relative">
         <div class="form-floating">
-          <input class="form-control d-inline-block" placeholder="Leave a comment here" style="width: 95%;" id="msg">
-          <button type="submit" class="btn btn-outline-primary">
-            <i class="fa fa-share-square"></i>
+          <input class="form-control d-inline-block" placeholder="Leave a comment here" style="width: 100%;" id="msg">
+          <button type="submit" class="sendBtn">
+            <img src="send.png" width="40" alt="">
           </button>
       </form>
 
