@@ -57,7 +57,7 @@ const appendDOM = (message, position)=> {
   socket.emit('new-user-join', user)
 
   socket.on("new-connection", clients=> {
-    if ((clients) == 1) clients = "No"
+    if ((clients) == 0) clients = "No"
     appendDOM(`<i class="fa fa-user"></i> ${clients} user(s) in the chat`, "info")
   })
 
